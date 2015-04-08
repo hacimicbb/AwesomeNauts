@@ -41,5 +41,5 @@ game.HeroDeathManager = Object.extend({
             me.game.world.removeChild(game.data.player);
             me.state.current().resetPlayer(10, 0);
         }
-   },
-}),
+   }
+});
