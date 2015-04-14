@@ -51,12 +51,13 @@ game.TitleScreen = me.ScreenObject.extend({
                     },
                     
                     newGame: function(){
+                        me.input.releasePointerEvent('pointerdown', this);
                         game.data.exp = me.save.exp;
                         game.data.exp1 = me.save.exp1;
                         game.data.exp2 = me.save.exp2;
                         game.data.exp3 = me.save.exp3;
                         game.data.exp4 = me.save.exp4;
-                        me.input.releasePointerEvent('pointerdown', this);
+                        me.save.add({exp: 0, exp1: 0, exp2: 0, exp3: 0, exp4: 0});
                         me.state.change(me.state.SPENDEXP);
                         
                     }
