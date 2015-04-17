@@ -3,10 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/BahrudinHAwesomeNauts/js/entities/GameManager.js</file>
             <file>file:/C:/xampp/htdocs/BahrudinHAwesomeNauts/js/screens/title.js</file>
             <file>file:/C:/xampp/htdocs/BahrudinHAwesomeNauts/js/screens/play.js</file>
             <file>file:/C:/xampp/htdocs/BahrudinHAwesomeNauts/js/game.js</file>
+            <file>file:/C:/xampp/htdocs/BahrudinHAwesomeNauts/js/resources.js</file>
+            <file>file:/C:/xampp/htdocs/BahrudinHAwesomeNauts/js/screens/spendExp.js</file>
             <file>file:/C:/xampp/htdocs/BahrudinHAwesomeNauts/js/entities/entities.js</file>
+            <file>file:/C:/xampp/htdocs/BahrudinHAwesomeNauts/js/entities/PlayerBaseEntity.js</file>
         </group>
     </open-files>
 </project-private>
