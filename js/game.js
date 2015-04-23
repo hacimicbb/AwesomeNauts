@@ -40,6 +40,8 @@ var game = {
                 pausePos: "",
                 buyscreen: "",
                 buytext: "",
+                option1: "",
+                option2: "",
                 
 	},
         
