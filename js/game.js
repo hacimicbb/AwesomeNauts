@@ -65,7 +65,7 @@ var game = {
         
         me.state.SPENDEXP = 112;
         me.state.LOAD = 113;
-        me.state.NEW = 114;
+        me.state.NEW = 115;
        
 	// Initialize the audio.
 	me.audio.init("mp3,ogg");
