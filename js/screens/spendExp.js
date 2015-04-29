@@ -3,14 +3,14 @@ game.SpendExp = me.ScreenObject.extend({
      *  action to perform on state change
      */
     onResetEvent: function() {
-        me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage('exp-screen')), -10); // TODO
-
+        //me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage('exp-screen')), -10); // TODO
+        console.log("Spending");
         me.input.bindKey(me.input.KEY.F1, "F1");
         me.input.bindKey(me.input.KEY.F2, "F2");
         me.input.bindKey(me.input.KEY.F3, "F3");
         me.input.bindKey(me.input.KEY.F4, "F4");
         me.input.bindKey(me.input.KEY.F5, "F5");
-        var exp1cost = ((game.data.exp1 + 1) * 10);
+        var exp1cost = ((Number(game.data.exp1) + 1) * 10);
 
 
         me.game.world.addChild(new (me.Renderable.extend({
@@ -20,7 +20,7 @@ game.SpendExp = me.ScreenObject.extend({
             },
             draw: function(renderer) {
                 this.font.draw(renderer.getContext(), "PRESS F1-F4 TO BUY, F5 TO SKIP", this.pos.x, this.pos.y);
-                this.font.draw(renderer.getContext(), "CURRENT EXP: " + game.data.exp.toString(), this.pos.x + 100, this.pos.y + 50);
+                this.font.draw(renderer.getContext(), "CURRENT EXP: " + game.data.exp.toString(), this.pos.y + 50);
                 this.font.draw(renderer.getContext(), "F1: INCRESE GOLD PRODUCTION CURRENT GOLD: " + game.data.exp.toString() + " COST: " + ((game.data.exp1 + 1) * 10), this.pos.x, this.pos.y + 100);
                 this.font.draw(renderer.getContext(), "F2: ADD STARTING GOLD " + game.data.exp.toString(), this.pos.x, this.pos.y + 150);
                 this.font.draw(renderer.getContext(), "F3: INCREASE ATTACK DAMAGE  " + game.data.exp.toString(), this.pos.x, this.pos.y + 200);
