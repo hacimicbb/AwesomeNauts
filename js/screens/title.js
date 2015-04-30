@@ -25,6 +25,7 @@ game.TitleScreen = me.ScreenObject.extend({
                         me.input.releasePointerEvent('pointerdown', this);
                         console.log("starting new game");
                         me.state.change(me.state.NEW);
+                        //this is our newgame screen 
                     }
                 })));
                 

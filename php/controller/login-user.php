@@ -19,7 +19,6 @@
         
         if($row["password"] === crypt($password, $row["salt"])) {
             $_SESSION["authenticated"] =true;
-            echo "<p>Login Successful!</p>";
            $array["exp"] = $row["exp"];
            $array["exp1"] = $row["exp1"];
            $array["exp2"] = $row["exp2"];

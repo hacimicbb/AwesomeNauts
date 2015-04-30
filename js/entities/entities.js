@@ -7,6 +7,7 @@ game.PlayerEntity = me.Entity.extend({
         this.type = "PlayerEntity";
 
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
+        //this makes it so that the screen moves with the player
 
         this.addAnimation();
 
@@ -22,6 +23,7 @@ game.PlayerEntity = me.Entity.extend({
                 spriteheight: "64",
                 getShape: function() {
                     return(new me.Rect(0, 0, 64, 64)).toPolygon();
+                    //this all pretty much sets up my players size, shape, and speed
                 }
             }]);
     },
@@ -29,14 +31,18 @@ game.PlayerEntity = me.Entity.extend({
     setPlayerTimers: function() {
         this.now = new Date().getTime();
         this.lastHit = this.now;
+        this.lasstSpear = this.now;
         this.lastAttack = new Date().getTime();
 
     },
     
     setAttributes: function() {
         this.health = game.data.playerHealth;
+        //this connects with game.js for its health
         this.body.setVelocity(game.data.playerMoveSpeed, 20);
+        //this is the players movement speed
         this.attack = game.data.playerAttack;
+        //this connects in game.js for its attack
     },
     
     setFlags: function() {
@@ -56,6 +62,7 @@ game.PlayerEntity = me.Entity.extend({
         this.now = new Date().getTime();
         this.dead = this.checkIfDead();
         this.checkKeyPressesAndMove()
+        this.checkAbilityKeys();
         this.setAnimation()
         me.collision.check(this, true, this.collideHandler.bind(this), true);
         this.body.update(delta);
@@ -85,14 +92,37 @@ game.PlayerEntity = me.Entity.extend({
         } else {
             this.body.vel.x = 0;
         }
+        //these two flipX codes are for our player to move left and right
 
         if (me.input.isKeyPressed("jump") && !this.body.jumping && !this.body.falling) {
             this.body.jumping = true;
             this.body.vel.y -= this.body.accel.y * me.timer.tick;
         }
+        //this piece of code is for our player to be able to jump
 
         this.attacking = me.input.isKeyPressed("attack")
+        //when key is pressed, player attacks
     },
+    
+    checkAbilityKeys: function(){
+      if(me.input.isKeyPressed("skill1")){
+            //this.speedBurst();
+      }else if(me.input.isKeyPressed("skill2")){
+            //this.eatCreep();  
+      }else if(me.input.isKeyPressed("skill3")){
+            this.throwSpear();
+      }  
+        
+    },
+    
+    throwSpear: function(){
+        if(this.lastSpear >= game.data.spearTimer && game.data.ability3 >= 0){
+            this.lastSpear = this.now;
+            var spear = me.pool.pull("spear", this.pos.x, this.pos.y, {});
+            me.game.world.addChild(spear, 10);
+        }
+    },
+    
     
     setAnimation: function() {
         if (this.attacking) {
@@ -154,8 +184,9 @@ game.PlayerEntity = me.Entity.extend({
 
         if (this.checkAttack(xdif, ydif)) {
             this.hitCreep(response);
-        }
-        ;
+            //when in contact with the enemy creep, both entities attack each other
+            //and are not allowed to walk through each other
+        };
     },
     
     stopMovement: function(xdif) {
@@ -189,8 +220,10 @@ game.PlayerEntity = me.Entity.extend({
             game.data.gold += 1;
             console.log("Current gold: " + game.data.gold);
         }
+        //this is the code for our player attacking the creep
 
         response.b.loseHealth(game.data.playerAttack);
+        //this line of code is for the creep to lose health
     },
 });
 

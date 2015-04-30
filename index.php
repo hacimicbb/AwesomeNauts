@@ -59,6 +59,7 @@
         <script type="text/javascript" src="js/gamemanagers/GameTimerManager.js"></script>
         <script type="text/javascript" src="js/entities/EnemyCreep.js"></script>
         <script type="text/javascript" src="js/entities/HUD.js"></script>
+        <script type="text/javascript" src="js/entities/SpearThrow.js"></script>
         <script type="text/javascript" src="js/screens/play.js"></script>
         <script type="text/javascript" src="js/screens/title.js"></script>
         <script type="text/javascript" src="js/screens/spendExp.js"></script>
@@ -98,9 +99,11 @@
         
            <script>
             $("#mainmenu").bind("click", function(){
-                me.state.change(me.state.MENU);
+                //this allows us to click the main menu button and go back to the main menu
+                   me.state.change(me.state.MENU);
             }); 
              $("#register").bind("click", function(){
+                 //this is allows us to register a new gamemode
                 $.ajax({
                     type: "POST",
                     url: "php/controller/create-user.php",
@@ -123,6 +126,7 @@
                 });
             });
              $("#load").bind("click", function(){
+                 //this allows us to load our old saved game
                 $.ajax({
                     type: "POST",
                     url: "php/controller/login-user.php",
@@ -146,6 +150,7 @@
                       
             
                        me.state.change(me.state.SPENDEXP);
+                       //when loaded it will take us to our spendexp page
                     }
                 })
                 .fail(function(response){

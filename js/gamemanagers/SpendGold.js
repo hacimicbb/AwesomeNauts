@@ -108,6 +108,7 @@ init: function(x, y, settings) {
             } else if (me.input.isKeyPressed("F6")) {
                 if (this.checkCost(6)) {
                     this.makePurchase(6);
+                    //these are all the abilities given for us to work on
                 }
 
             }
@@ -128,6 +129,7 @@ init: function(x, y, settings) {
                 return true;
             } else {
                 return false;
+                //this is the code for the skills and abilities
             }
         },
     
@@ -154,5 +156,5 @@ init: function(x, y, settings) {
             }
         }
         
-   })
+   });
 

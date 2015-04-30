@@ -7,9 +7,11 @@ game.ExperienceManager = Object.extend({
         if (game.data.win === true && !this.gameover) {
             this.gameOver(true);
             alert("YOU WIN!");
+            //this is us winning
         } else if (game.data.win === false && !this.gameover) {
             this.gameOver(false);
             alert("YOU LOSE!");
+            //this is us losing
         }
 
         return true;
@@ -22,7 +24,7 @@ game.ExperienceManager = Object.extend({
         }
         this.gameover = true;
         me.save.exp = game.data.exp;
-
+        //this is a game over to when the enemiesbase is dead
 
 
         $.ajax({

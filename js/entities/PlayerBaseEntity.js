@@ -15,6 +15,7 @@ game.PlayerBaseEntity = me.Entity.extend({
         this.alwaysUpdate = true;
         this.body.onCollision = this.onCollision.bind(this);
         this.type = "PlayerBase";
+        //this is the playerbase health and its collision
 
         this.renderable.addAnimation("idle", [0]);
         this.renderable.addAnimation("broken", [1]);
@@ -35,6 +36,7 @@ game.PlayerBaseEntity = me.Entity.extend({
     },
     loseHealth: function(damage) {
         this.health = this.health - damage;
+        //this allows the base take damage and lose health
     },
     onCollision: function() {
 

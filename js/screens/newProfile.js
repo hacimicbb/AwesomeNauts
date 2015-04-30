@@ -21,6 +21,7 @@ game.NewProfile = me.ScreenObject.extend({
             },
             draw: function(renderer) {
                 this.font.draw(renderer.getContext(), "PRESS F1-F4 TO BUY, F5 TO SKIP", this.pos.x, this.pos.y)
+                //this draws text saying that "PRESS F1-F4 TO BUY, F5 TO SKIP"
                     
              },
             

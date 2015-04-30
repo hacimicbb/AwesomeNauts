@@ -14,6 +14,7 @@ game.EnemyBaseEntity = me.Entity.extend({
         this.health = game.data.enemyBaseHealth;
         this.alwaysUpdate = true;
         this.body.onCollision = this.onCollision.bind(this);
+        //health of the enemy base and its collision
 
         this.type = "EnemyBaseEntity";
 
@@ -38,6 +39,7 @@ game.EnemyBaseEntity = me.Entity.extend({
     },
     loseHealth: function() {
         this.health--;
+        //this allows the base to actually lose health
     }
 });
 

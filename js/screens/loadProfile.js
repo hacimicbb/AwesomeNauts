@@ -13,6 +13,7 @@ game.LoadProfile = me.ScreenObject.extend({
         me.input.unbindKey(me.input.KEY.E );
         me.input.unbindKey(me.input.KEY.W );
         me.input.unbindKey(me.input.KEY.A );
+        //this loads a old cover screen to our game
 
 
         me.game.world.addChild(new (me.Renderable.extend({
@@ -22,6 +23,7 @@ game.LoadProfile = me.ScreenObject.extend({
             },
             draw: function(renderer) {
                 this.font.draw(renderer.getContext(), "ENTER YOUR USERNAME AND PASSWORD", this.pos.x, this.pos.y)
+                //this draws text to "ENTER YOUR USERNAME AND PASSWORD"
                     
              },
             
@@ -35,7 +37,7 @@ game.LoadProfile = me.ScreenObject.extend({
      */
     onDestroyEvent: function() {
         document.getElementById("input").style.visibility = "hidden";
-        document.geteElementById("load").style.visibility = "hidden";
+        document.getElementById("load").style.visibility = "hidden";
     }
 });
 

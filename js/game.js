@@ -23,6 +23,7 @@ var game = {
                 gameTimerManager: "",
                 heroDeathManager: "",
                 experienceManager: "",
+                spearTimer: 15,
                 player: "",
                 exp: 0,
                 gold: 0,
@@ -42,6 +43,7 @@ var game = {
                 buytext: "",
                 option1: "",
                 option2: "",
+                //this is all of the abilities to allow us to have them
                 
 	},
         
@@ -90,12 +92,15 @@ var game = {
                 me.pool.register("HeroDeathManager", game.HeroDeathManager);  
                 me.pool.register("ExperienceManager", game.ExperienceManager);
                 me.pool.register("SpendGold", game.SpendGold);
+                me.pool.register("spear", game.SpearThrow)
+                //these are all the pools for all of our pages
             
 		me.state.set(me.state.MENU, new game.TitleScreen());
 		me.state.set(me.state.PLAY, new game.PlayScreen());
                 me.state.set(me.state.SPENDEXP, new game.SpendExp());
                 me.state.set(me.state.LOAD, new game.LoadProfile());
-                me.state.set(me.state.NEW, new game.NewProfile()); 
+                me.state.set(me.state.NEW, new game.NewProfile());
+                //these are screens for our project
 
 
 		// Start the game.
